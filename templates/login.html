@@ -1,0 +1,39 @@
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+  </script>
+  <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
+  </script>
+</head>
+
+<body>
+
+<!--
+data-scope pulls email address
+data-clientid provides Google+ API clientID for authentication
+data-redirecturi enables one-time use
+data-accesstype allows for server to make requests even if user is not logged in
+data-cookiepolicy determines scope of URIs that can access the cookie
+  single_host_origin is site has only a single hostname and no subdomains
+data-callback if user clicks and allows, then this callback method is called and
+  given the one-time use code along with an access token
+data-approvalprompt user has to log in each time visit login page and doesn't
+  check for already logged in.  Good for troubleshooting/debugging, but irritating
+  and should be disabled in production
+-->
+
+<div id="signinButton">
+  <span class="g-signin"
+    data-scope="openid email"
+    data-clientid="307218260951-6p45erdq0g0culf7i5p8chilk815diiu.apps.googleusercontent.com"
+    data-redirecturi="postmessage"
+    data-accesstype="offline"
+    data-cookiepolicy="single_host_origin"
+    data-callback="signInCallback"
+    data-approvalprompt="force">
+  </span>
+</div>
+<div id="result"></div>
+
+</body>
+</html>
